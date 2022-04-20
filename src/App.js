@@ -79,6 +79,7 @@ const App = () => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          sendGif();
         }}
       >
         <input 
