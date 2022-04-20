@@ -57,7 +57,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="container">
+      <div className={walletAddress ? 'authed-container' : "container"}>
         <div className="header-container">
           <p className="header">🖼 GIF Portal</p>
           <p className="sub-text">
