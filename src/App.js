@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import githubLogo from './assets/github-icon.svg';
 import './App.css';
 
@@ -7,6 +7,8 @@ const GITHUB_HANDLE = 'LinusWeigand';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
 
 const App = () => {
+
+  const [walletAddress, setWalletAddress] = useState(null);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -21,6 +23,8 @@ const App = () => {
             'Connected with Public Key: ',
             response.publicKey.toString()
           );
+
+          setWalletAddress(response.publicKey.toString());
         }
       } else {
         alert('Solana object not found! Get a Phantom wallet 👻');
