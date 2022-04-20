@@ -5,6 +5,7 @@ import './App.css';
 // Constants
 const GITHUB_HANDLE = 'LinusWeigand';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
+const [gifList, setGifList] = useState([]);
 
 const App = () => {
 
@@ -106,6 +107,14 @@ const App = () => {
     window.addEventListener('load', onLoad);
     return () => window.removeEventListener('load', onLoad);
   }, []);
+
+  useEffect(() => {
+    if (walletAddress) {
+      console.log('Fetching GIF list...');
+
+      setGifList(TEST_GIFS);
+    }
+  }, [walletAddress]);
 
   return (
     <div className="App">
