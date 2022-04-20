@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import githubLogo from './assets/github-icon.svg';
 import './App.css';
 
@@ -14,6 +15,12 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log('Phantom wallet found!');
+
+          const response = await solana.connect({ onlyIfTrusted: true });
+          console.log(
+            'Connected with Public Key: ',
+            response.publicKey.toString()
+          );
         }
       } else {
         alert('Solana object not found! Get a Phantom wallet 👻');
@@ -21,6 +28,19 @@ const App = () => {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const connectWallet = async () => {
+
+  };
+
+  const renderNotConnectedContainer = () => {
+    return (<button
+      className="cta-button connect-wallet-button"
+      onClick={connectWallet}
+    >
+      Connect to Wallet
+    </button>);
   }
 
   useEffect(() => {
@@ -39,6 +59,7 @@ const App = () => {
           <p className="sub-text">
             View your GIF collection in the metaverse ✨
           </p>
+          {renderNotConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={githubLogo} />
