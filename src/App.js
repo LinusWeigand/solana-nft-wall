@@ -89,6 +89,7 @@ const App = () => {
             View your GIF collection in the metaverse ✨
           </p>
           {!walletAddress && renderNotConnectedContainer()}
+          {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={githubLogo} />
