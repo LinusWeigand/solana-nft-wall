@@ -61,15 +61,15 @@ const App = () => {
   }
 
   const renderConnectedContainer = () => {
-    <div className="connected-container">
+    return (<div className="connected-container">
       <div className="gif-grid">
-        {TEST_GIFS.map(gif => (
-          <div>
+        {TEST_GIFS.map((gif, index) => (
+          <div key={index}>
             <img src={gif} alt={gif} />
           </div>
         ))}
       </div>
-    </div>
+    </div>)
   }
 
   useEffect(() => {
