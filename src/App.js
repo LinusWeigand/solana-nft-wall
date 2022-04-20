@@ -2,8 +2,8 @@ import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 
 // Constants
-const TWITTER_HANDLE = '_buildspace';
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+const TWITTER_HANDLE = 'LinusWeigand';
+const TWITTER_LINK = `https://github.com/${TWITTER_HANDLE}`;
 
 const App = () => {
   return (
