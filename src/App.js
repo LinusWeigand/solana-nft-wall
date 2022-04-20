@@ -52,10 +52,18 @@ const App = () => {
     }
   };
 
+  const sendGif = async () => {
+    if (inputValue.length > 0) {
+      console.log('Gif link:', inputValue);
+    } else {
+      console.log('Empty input. Try again.');
+    }
+  }
+
   const onInputChange = (event) => {
     const {value} = event.target;
     setInputValue(value);
-  }
+  };
 
   const renderNotConnectedContainer = () => {
     return (<button
@@ -64,7 +72,7 @@ const App = () => {
     >
       Connect to Wallet
     </button>);
-  }
+  };
 
   const renderConnectedContainer = () => {
     return (<div className="connected-container">
@@ -88,7 +96,7 @@ const App = () => {
         ))}
       </div>
     </div>)
-  }
+  };
 
   useEffect(() => {
     const onLoad = async () => {
