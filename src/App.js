@@ -60,6 +60,18 @@ const App = () => {
     </button>);
   }
 
+  const renderConnectedContainer = () => {
+    <div className="connected-container">
+      <div className="gif-grid">
+        {TEST_GIFS.map(gif => (
+          <div>
+            <img src={gif} alt={gif} />
+          </div>
+        ))}
+      </div>
+    </div>
+  }
+
   useEffect(() => {
     const onLoad = async () => {
       await checkIfWalletIsConnected();
