@@ -1,11 +1,28 @@
-import twitterLogo from './assets/twitter-logo.svg';
+import githubLogo from './assets/github-icon.svg';
 import './App.css';
 
 // Constants
-const TWITTER_HANDLE = 'LinusWeigand';
-const TWITTER_LINK = `https://github.com/${TWITTER_HANDLE}`;
+const GITHUB_HANDLE = 'LinusWeigand';
+const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
 
 const App = () => {
+
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { solana } = window;
+
+      if (solana) {
+        if (solana.isPhantom) {
+          console.log('Phantom wallet found!');
+        }
+      } else {
+        alert('Solana object not found! Get a Phantom wallet 👻');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -16,13 +33,13 @@ const App = () => {
           </p>
         </div>
         <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <img alt="Twitter Logo" className="twitter-logo" src={githubLogo} />
           <a
             className="footer-text"
-            href={TWITTER_LINK}
+            href={GITHUB_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${GITHUB_HANDLE}`}</a>
         </div>
       </div>
     </div>
